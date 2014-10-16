@@ -8,12 +8,10 @@
 
 class Component : public Tool
 {
-    protected:
-        SDL_Renderer *m_renderer;
     public:
-        Component( uShort maxWidth, uShort maxHeight, SDL_Renderer* renderer );
+        Component( uShort maxWidth, uShort maxHeight );
         ~Component();
-        virtual void render( bool update ) = 0;
+        virtual void render( bool update, SDL_Renderer *renderer ) = 0;
 };
 
 #endif // COMPONENT_H_INCLUDED

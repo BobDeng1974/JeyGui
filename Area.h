@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <cstdio>
+#include <SDL.h>
 
 #include "Tool.h"
 #include "ToolWrapper.h"
@@ -18,7 +19,7 @@ class Area : public Tool
         Area();
         ~Area();
         void add( Tool *tool, uInt stretch, uChar raw = 0, uChar column = 0 );
-        virtual void render( bool update ) = 0;
+        virtual void render( bool update, SDL_Renderer *renderer ) = 0;
         void setDimension( uShort x, uShort y );
         void setDimension( uShort x, uShort y, uShort width, uShort height );
 };

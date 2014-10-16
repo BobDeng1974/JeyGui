@@ -8,7 +8,7 @@ HArea::~HArea()
 {
 }
 
-void HArea::render( bool update )
+void HArea::render( bool update, SDL_Renderer *renderer )
 {
     if( update )
     {
@@ -36,7 +36,7 @@ void HArea::render( bool update )
                 indicatorX += widthFill;
                 widthMiss = 0;
             }
-            tool->_t->render( update );
+            tool->_t->render( update, renderer );
         }
         if( widthMiss != 0 )
         {
@@ -47,7 +47,7 @@ void HArea::render( bool update )
     {
         for( unsigned int i = 0; i < m_lTool.size(); ++i )
         {
-            m_lTool.at(i)->_t->render( update );
+            m_lTool.at(i)->_t->render( update, renderer );
         }
     }
 }

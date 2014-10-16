@@ -2,15 +2,13 @@
 
 AbsoluteArea::AbsoluteArea()
 {
-
 }
 
 AbsoluteArea::~AbsoluteArea()
 {
-
 }
 
-void AbsoluteArea::render( bool recalcul )
+void AbsoluteArea::render( bool update, SDL_Renderer *renderer )
 {
 
 }

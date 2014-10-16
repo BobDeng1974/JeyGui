@@ -8,7 +8,7 @@ class HArea : public Area
     public:
         HArea();
         ~HArea();
-        void render( bool update );
+        void render( bool update, SDL_Renderer *renderer );
 };
 
 #endif // HAREA_H_INCLUDED

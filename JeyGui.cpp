@@ -16,6 +16,7 @@ JeyGui::JeyGui()
         if( monitorAvailable == 0 )
         {
             printf( "Moniteur[0](%d,%d)px, @%dHz.\n", current.w, current.h, current.refresh_rate );
+            m_refreshRate = current.refresh_rate;
             m_widthScreen = current.w-50;
             m_heightScreen = current.h-50;
             m_isWorking = true;
@@ -67,7 +68,7 @@ Window* JeyGui::createWindow( std::string title )
         heightFormat = 9;
     }
 
-    printf( "Screen format : %d:%d\n", widthFormat, heightFormat );
+    printf( "Screen format : %d:%d\n\n", widthFormat, heightFormat );
 
     m_widthRcmd = m_widthScreen;
     m_heightRcmd = m_widthScreen/widthFormat * heightFormat;
@@ -90,7 +91,7 @@ Window* JeyGui::createWindow( std::string title, uShort width, uShort height, uS
     else
     {
         createRenderer( m_sdlWin );
-        m_window = new Window( m_sdlWin );
+        m_window = new Window( m_sdlWin, m_renderer );
     }
 
     return m_window;

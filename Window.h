@@ -12,11 +12,12 @@ class Window
 {
     private:
         SDL_Window *m_sdlWin;
+        SDL_Renderer *m_renderer;
         Area *m_area;
         bool m_init;
 
     public:
-        Window( SDL_Window *window );
+        Window( SDL_Window *window, SDL_Renderer *renderer );
         ~Window();
 
         void setArea( Area* area );

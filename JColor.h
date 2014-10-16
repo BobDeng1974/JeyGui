@@ -9,16 +9,14 @@
 class JColor : public Component
 {
     private:
-        SDL_Renderer *m_renderer;
         Uint8 m_r;
         Uint8 m_g;
         Uint8 m_b;
         Uint8 m_a;
     public:
-        JColor( uShort maxWidth, uShort maxHeight, SDL_Renderer *renderer,
-                    Uint8 r, Uint8 g, Uint8 b, Uint8 a );
+        JColor( uShort maxWidth, uShort maxHeight, Uint8 r, Uint8 g, Uint8 b, Uint8 a );
         ~JColor();
-        void render( bool update );
+        void render( bool update, SDL_Renderer *renderer );
 };
 
 #endif // JCOLOR_H

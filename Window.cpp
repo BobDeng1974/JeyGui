@@ -1,7 +1,7 @@
 #include "Window.h"
 
-Window::Window( SDL_Window *window )
-    : m_sdlWin( window )
+Window::Window( SDL_Window *window, SDL_Renderer *renderer )
+    : m_sdlWin( window ), m_renderer( renderer )
 {
 }
 
@@ -27,12 +27,12 @@ void Window::render( bool update )
 {
     if( update || !m_init )
     {
-        m_area->render( true );
+        m_area->render( true, m_renderer );
         m_init = true;
     }
     else
     {
-        m_area->render( false );
+        m_area->render( false, m_renderer );
     }
 }
 

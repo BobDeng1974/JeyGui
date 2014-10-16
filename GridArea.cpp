@@ -11,7 +11,7 @@ GridArea::~GridArea()
 {
 }
 
-void GridArea::render( bool update )
+void GridArea::render( bool update, SDL_Renderer *renderer )
 {
     if( update )
     {
@@ -21,7 +21,7 @@ void GridArea::render( bool update )
         for( unsigned int i = 0; i < m_lTool.size(); ++i )
         {
             tool = m_lTool.at(i);
-            printf( "X:%d, Y:%d, W:%d, H:%d\n", m_x + (tool->_column*width), m_y + (tool->_raw*height), width, height );
+            //printf( "X:%d, Y:%d, W:%d, H:%d\n", m_x + (tool->_column*width), m_y + (tool->_raw*height), width, height );
             tool->_t->setDimension( m_x + (tool->_column*width), m_y + (tool->_raw*height), width, height );
 
             if( (tool->_t->getWidth() != width) ||
@@ -30,14 +30,14 @@ void GridArea::render( bool update )
                 // TODO recenter
                 //tool->_t->setDimension( m_x + (tool->_column*width), m_y + (tool->_raw*height) );
             }
-            tool->_t->render( update );
+            tool->_t->render( update, renderer );
         }
     }
     else
     {
         for( unsigned int i = 0; i < m_lTool.size(); ++i )
         {
-            m_lTool.at(i)->_t->render( update );
+            m_lTool.at(i)->_t->render( update, renderer );
         }
     }
 }

@@ -1,11 +1,15 @@
 # depslib dependency file v1.0
-1413399274 source:c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\main.cpp
+1413481492 source:c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\main.cpp
 	<iostream>
+	<string>
 	"JeyGui.h"
 	"Window.h"
 	"VArea.h"
 	"HArea.h"
 	"GridArea.h"
+	"JTexture.h"
+	"JScene.h"
+	"JButton.h"
 	"define_base.h"
 
 1412789088 source:c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\src\jeygui.cpp
@@ -338,19 +342,19 @@
 	"begin_code.h"
 	"close_code.h"
 
-1413393242 source:c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\jeygui.cpp
+1413479330 source:c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\jeygui.cpp
 	<stdio.h>
 	<SDL.h>
 	<SDL_Image.h>
 	"JeyGui.h"
 
-1413376421 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\jeygui.h
+1413460176 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\jeygui.h
 	<string>
 	"Window.h"
 	"ComponentFactory.h"
 	"define_base.h"
 
-1412932080 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\window.h
+1413458966 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\window.h
 	<stdio.h>
 	<SDL.h>
 	"Area.h"
@@ -358,7 +362,7 @@
 
 1413391154 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\define_base.h
 
-1413358146 source:c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\window.cpp
+1413458992 source:c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\window.cpp
 	"Window.h"
 
 1376156342 c:\users\jey\documents\c++\api\sdl_image\include\sdl2\sdl_image.h
@@ -367,77 +371,120 @@
 	"begin_code.h"
 	"close_code.h"
 
-1412868165 source:c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\absolutearea.cpp
+1413460656 source:c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\absolutearea.cpp
 	"AbsoluteArea.h"
 
 1413394577 source:c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\area.cpp
 	"Area.h"
 
-1413394579 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\area.h
+1413458708 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\area.h
 	<vector>
 	<cstdio>
+	<SDL.h>
 	"Tool.h"
 	"ToolWrapper.h"
 	"define_base.h"
 
-1412874743 source:c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\component.cpp
+1413458729 source:c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\component.cpp
 	"Component.h"
 
-1413398021 source:c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\gridarea.cpp
+1413460478 source:c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\gridarea.cpp
 	"GridArea.h"
 	"define_base.h"
 
-1413393350 source:c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\harea.cpp
+1413458610 source:c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\harea.cpp
 	"HArea.h"
 
-1413393242 source:c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\varea.cpp
+1413458610 source:c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\varea.cpp
 	<cstdio>
 	"VArea.h"
 	"define_base.h"
 
-1413355980 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\tool.h
+1413458823 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\tool.h
+	<SDL.h>
 	"define_base.h"
 
 1413394528 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\toolwrapper.h
 	"define_base.h"
 
-1412868147 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\absolutearea.h
+1413458708 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\absolutearea.h
+	<SDL.h>
 	"Area.h"
 
-1413396210 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\gridarea.h
+1413458610 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\gridarea.h
 	"Area.h"
 	"define_base.h"
 
-1413391684 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\harea.h
+1413458610 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\harea.h
 	"Area.h"
 
 1413357755 source:c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\tool.cpp
 	"Tool.h"
 	<cstdio>
 
-1413391552 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\varea.h
+1413458610 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\varea.h
 	"Area.h"
 
-1413380358 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\component.h
+1413458771 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\component.h
 	<SDL.h>
 	"Tool.h"
 	"define_base.h"
 
-1413380212 source:c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\componentfactory.cpp
+1413477519 source:c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\componentfactory.cpp
+	<cstdio>
+	<SDL_image.h>
 	"ComponentFactory.h"
-	<iostream>
 
-1412877476 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\componentfactory.h
+1413476339 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\componentfactory.h
+	<string>
 	<SDL.h>
 	"JColor.h"
+	"JTexture.h"
+	"JTextureButton.h"
+	"JButton.h"
 	"define_base.h"
 
-1412874743 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\jcolor.h
+1413458517 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\jcolor.h
 	<SDL.h>
 	"Component.h"
 	"define_base.h"
 
-1413397452 source:c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\jcolor.cpp
+1413463697 source:c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\jcolor.cpp
 	"JColor.h"
 	<cstdio>
+
+1413477519 source:c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\jtexture.cpp
+	<cstdio>
+	"JTexture.h"
+
+1413477427 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\jtexture.h
+	<SDL.h>
+	"Component.h"
+	"define_base.h"
+
+1413461118 source:c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\jscene.cpp
+	"JScene.h"
+
+1413461048 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\jscene.h
+	<SDL.h>
+	"Area.h"
+
+1413478241 source:c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\jbutton.cpp
+	"JButton.h"
+	<cstdio>
+
+1413478241 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\jbutton.h
+	<string>
+	<SDL.h>
+	"Component.h"
+	"JTextureButton.h"
+	"define_base.h"
+
+1413483652 source:c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\jtexturebutton.cpp
+	<cstdio>
+	"JTextureButton.h"
+
+1413481048 c:\users\jey\documents\c++\projets\codeblocks\sdl\jeygui\jtexturebutton.h
+	<SDL.h>
+	"JTexture.h"
 

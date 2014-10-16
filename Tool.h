@@ -1,6 +1,8 @@
 #ifndef TOOL_H_INCLUDED
 #define TOOL_H_INCLUDED
 
+#include <SDL.h>
+
 #include "define_base.h"
 
 class Tool
@@ -16,7 +18,7 @@ class Tool
         Tool( uShort maxWidth, uShort maxHeight );
         ~Tool();
 
-        virtual void render( bool update ) = 0;
+        virtual void render( bool update, SDL_Renderer *renderer ) = 0;
         void setDimension( uShort x, uShort y );
         void setDimension( uShort x, uShort y, uShort width, uShort height );
 

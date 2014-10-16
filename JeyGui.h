@@ -22,6 +22,7 @@ class JeyGui
         uShort m_widthScreen;
         uShort m_heightScreen;
         bool m_isWorking;
+        uChar m_refreshRate;
         // private functions
         void free();
         void createRenderer( SDL_Window *win );

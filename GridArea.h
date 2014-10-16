@@ -13,7 +13,7 @@ class GridArea : public Area
     public:
         GridArea( uChar raw, uChar column );
         ~GridArea();
-        void render( bool update );
+        void render( bool update, SDL_Renderer *renderer );
 };
 
 #endif // GRIDAREA_H_INCLUDED

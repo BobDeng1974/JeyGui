@@ -1,10 +1,14 @@
 #include <iostream>
+#include <string>
 
 #include "JeyGui.h"
 #include "Window.h"
 #include "VArea.h"
 #include "HArea.h"
 #include "GridArea.h"
+#include "JTexture.h"
+#include "JScene.h"
+#include "JButton.h"
 #include "define_base.h"
 
 using namespace std;
@@ -21,50 +25,33 @@ int main( int agrc, char* argv[] )
         }
         else
         {
-            Area *lyrOne = new VArea;
-
+            Area *lyrOne = new HArea;
             window->setArea( lyrOne );
 
             ComponentFactory *cFact = jGui->createComponentFactory();
 
-            Area *lyrThree = new GridArea( 10, 10);
+            Area *lyrTwo = new VArea;
 
-            JColor *c1 = cFact->createJColor( 0xFF, 0x00, 0x00, 0x00 );
-            JColor *c3 = cFact->createJColor( 0x00, 0x00, 0xFF, 0x00 );
-            JColor *c4 = cFact->createJColor( 0x00, 0xFF, 0xFF, 0x00 );
-            JColor *c5 = cFact->createJColor( 0x00, 0x00, 0xFF, 0x00 );
-            JColor *c6 = cFact->createJColor( 0x00, 0xFF, 0xFF, 0x00 );
+            lyrOne->add( lyrTwo, 4 );
+            lyrOne->add( cFact->createJColor(0x71, 0x33, 0x00, 0x00), 1 );
 
-            Area *lyrTwo = new HArea;
+            JTexture *t = cFact->loadTexture( "foo.png" );
+            t->setDimension( 100, 100 );
 
-            lyrOne->add( c1, 1 );
-            lyrOne->add( lyrTwo, 2 );
-            lyrOne->add( lyrThree, 1 );
+            JScene *jScn = new JScene;
+            jScn->add( t, 0 );
 
-            lyrTwo->add( c3, 1 );
-            lyrTwo->add( c4, 1 );
-            lyrTwo->add( c5, 1 );
-            lyrTwo->add( c6, 1 );
+            JTextureButton *txtrBut = cFact->loadTextureButton( "button_texture.png" );
 
-            for( int i = 0; i < 10; i+=2 )
-            {
-                bool isWhite1 = true;
-                bool isWhite2 = false;
-                Uint8 c = 0xFF;
-                for( int j = 0; j < 10; ++j )
-                {
-                    lyrThree->add( cFact->createJColor( c, c, c, c ), 1, i, j );
-                    c = (isWhite1) ? 0x00 : 0xFF;
-                    isWhite1 = !isWhite1;
-                }
-                c = 0x00;
-                for( int j = 0; j < 10; ++j )
-                {
-                    lyrThree->add( cFact->createJColor( c, c, c, c ), 1, i+1, j );
-                    c = (isWhite2) ? 0x00 : 0xFF;
-                    isWhite2 = !isWhite2;
-                }
-            }
+            std::string *text = new std::string("text");
+            JButton *b = cFact->createJButton( text, txtrBut );
+            b->setEmptyBorder( 15 );
+            Area *lyrThree = new HArea;
+            lyrTwo->add( lyrThree, 1 );
+            lyrTwo->add( jScn, 5 );
+
+            lyrThree->add( b, 1 );
+            lyrThree->add( cFact->createJColor(0x33, 0x99, 0x00, 0x00), 9 );
 
             window->show();
             do

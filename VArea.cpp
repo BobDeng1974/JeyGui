@@ -11,7 +11,7 @@ VArea::~VArea()
 {
 }
 
-void VArea::render( bool update )
+void VArea::render( bool update, SDL_Renderer *renderer )
 {
     if( update )
     {
@@ -39,7 +39,7 @@ void VArea::render( bool update )
                 indicatorY += heightFill;
                 heightMiss = 0;
             }
-            tool->_t->render( update );
+            tool->_t->render( update, renderer );
         }
         if( heightMiss != 0 )
         {
@@ -50,7 +50,7 @@ void VArea::render( bool update )
     {
         for( unsigned int i = 0; i < m_lTool.size(); ++i )
         {
-            m_lTool.at(i)->_t->render( update );
+            m_lTool.at(i)->_t->render( update, renderer );
         }
     }
 }

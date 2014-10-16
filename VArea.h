@@ -8,7 +8,7 @@ class VArea : public Area
     public:
         VArea();
         ~VArea();
-        void render( bool update );
+        void render( bool update, SDL_Renderer *renderer );
 };
 
 #endif // VAERA_H_INCLUDED
