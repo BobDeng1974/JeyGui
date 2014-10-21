@@ -4,8 +4,9 @@
 #include <string>
 
 #include "Window.h"
-#include "ComponentFactory.h"
+#include "MouseListener.h"
 #include "define_base.h"
+#include "ComponentFactory.h"
 
 class JeyGui
 {
@@ -23,6 +24,7 @@ class JeyGui
         uShort m_heightScreen;
         bool m_isWorking;
         uChar m_refreshRate;
+        MouseListener *m_mListnr;
         // private functions
         void free();
         void createRenderer( SDL_Window *win );
@@ -35,6 +37,7 @@ class JeyGui
         Window* createWindow( std::string title, uShort width, uShort height, uShort x, uShort y );
         ComponentFactory* createComponentFactory();
         bool loop();
+        void addMouseListener( Tool *tool );
 
         bool isWorking();
 };

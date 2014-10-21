@@ -3,6 +3,7 @@
 
 #include <SDL.h>
 
+#include "MouseListener.h"
 #include "define_base.h"
 
 class Tool
@@ -14,6 +15,9 @@ class Tool
         uShort m_height;
         uShort m_maxWidth;
         uShort m_maxHeight;
+
+        MouseListener *m_mListnr;
+
     public:
         Tool( uShort maxWidth, uShort maxHeight );
         ~Tool();
@@ -21,6 +25,8 @@ class Tool
         virtual void render( bool update, SDL_Renderer *renderer ) = 0;
         void setDimension( uShort x, uShort y );
         void setDimension( uShort x, uShort y, uShort width, uShort height );
+        void setMouseListener( MouseListener *mListnr );
+        bool isMouseOver();
 
         uShort getWidth();
         uShort getHeight();

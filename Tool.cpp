@@ -4,6 +4,7 @@
 Tool::Tool( uShort maxWidth, uShort maxHeight )
     : m_maxWidth( maxWidth ), m_maxHeight( maxHeight )
 {
+    m_mListnr = NULL;
 }
 
 Tool::~Tool()
@@ -31,6 +32,21 @@ void Tool::setDimension( uShort x, uShort y, uShort width, uShort height )
     {
         m_height = m_maxHeight;
     }
+}
+
+void Tool::setMouseListener( MouseListener *mListnr )
+{
+    m_mListnr = mListnr;
+}
+
+bool Tool::isMouseOver()
+{
+    if( m_mListnr == NULL )
+        return false;
+
+    MousePosition mPos = m_mListnr->getMousePosition();
+    return ( (mPos._x >= m_x) && (mPos._x <= m_x+m_width) &&
+        (mPos._y >= m_y) && (mPos._y <= m_y+m_height) );
 }
 
 uShort Tool::getWidth()

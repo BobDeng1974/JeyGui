@@ -2,9 +2,11 @@
 #include <SDL_image.h>
 
 #include "ComponentFactory.h"
+#include "JeyGui.h"
+#include "JButton.h"
 
-ComponentFactory::ComponentFactory( SDL_Renderer *renderer )
-    : m_renderer( renderer )
+ComponentFactory::ComponentFactory( SDL_Renderer *renderer, MouseListener *mListnr, JeyGui *jGui )
+    : m_renderer( renderer ), m_mListnr( mListnr ), m_jGui( jGui )
 {
 }
 
@@ -54,46 +56,47 @@ JTexture* ComponentFactory::loadTexture( std::string path )
     TextureParam *txtrPr = loadSdlTexture( path );
 
     JTexture *jTxtr = NULL;
-
     if( txtrPr != NULL )
     {
-        jTxtr = new JTexture( 0, 0, txtrPr->_txtr, txtrPr->_maxWidth, txtrPr->_maxHeight);
+        jTxtr = new JTexture( 0, 0, txtrPr->_txtr, txtrPr->_width, txtrPr->_height);
         delete txtrPr;
     }
 
 	return jTxtr;
 }
 
-JTextureButton* ComponentFactory::loadTextureButton( std::string path )
+JTextureButton* ComponentFactory::loadTextureButton( std::string *path )
 {
-    TextureParam *txtrPr = loadSdlTexture( path );
+    JTexture **jTxtrArr = new JTexture*[MOUSE_TOTAL_STATE];
+    TextureParam *txtrPr = NULL;
 
-    JTextureButton *jTxtr = NULL;
-
-    if( txtrPr != NULL )
+    for( int i = 0; i < MOUSE_TOTAL_STATE; ++i )
     {
-        jTxtr = new JTextureButton( 0, 0, txtrPr->_txtr, txtrPr->_maxWidth, txtrPr->_maxHeight );
-        delete txtrPr;
-    }
+        txtrPr = loadSdlTexture( path[i] );
 
-	return jTxtr;
+        if( txtrPr != NULL )
+        {
+            jTxtrArr[i] = new JTexture( 0, 0, txtrPr->_txtr, txtrPr->_width, txtrPr->_height );
+            delete txtrPr;
+        }
+    }
+    // TODO Notify JGui about this component
+	return new JTextureButton( jTxtrArr );
 }
 
 JButton* ComponentFactory::createJButton( std::string *text, uShort maxWidth, uShort maxHeight )
 {
     // TODO Notify JGui about this component
-    // FIXME Give default texture
-    return new JButton( maxWidth, maxHeight, text, NULL );
+    // TODO Give default texture
+    JButton *b = new JButton( maxWidth, maxHeight, text, NULL );
+    m_jGui->addMouseListener( b );
+    return b;
 }
 
 JButton* ComponentFactory::createJButton( std::string *text, JTextureButton *texture, uShort maxWidth, uShort maxHeight )
 {
     // TODO Notify JGui about this component
-    if( texture != NULL )
-        return new JButton( maxWidth, maxHeight, text, texture );
-    else
-    {
-        // FIXME Give default texture
-        return new JButton( maxWidth, maxHeight, text, NULL );
-    }
+    JButton *b = new JButton( maxWidth, maxHeight, text, texture );
+    m_jGui->addMouseListener( b );
+    return b;
 }

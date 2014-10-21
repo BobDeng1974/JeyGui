@@ -5,7 +5,7 @@
 		<Option title="JeyGui" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="Tools\Component\;Tools\;Tools\Component\;Tools\Area\;Tools\;Tools\;Utils\;Core\;" />
+		<Option virtualFolders="Tools\Component\;Tools\;Tools\Component\;Tools\Area\;Tools\;Tools\;Utils\;Core\;Tools\Component\Clickable\;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/JeyGui" prefix_auto="1" extension_auto="1" />
@@ -34,6 +34,7 @@
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="-std=c++11" />
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 			<Add directory="C:/Users/Jey/Documents/C++/API/SDL/include/SDL2" />
@@ -83,10 +84,34 @@
 		<Unit filename="HArea.h">
 			<Option virtualFolder="Tools/Area/" />
 		</Unit>
+		<Unit filename="JButton.cpp">
+			<Option virtualFolder="Tools/Component/Clickable/" />
+		</Unit>
+		<Unit filename="JButton.h">
+			<Option virtualFolder="Tools/Component/Clickable/" />
+		</Unit>
 		<Unit filename="JColor.cpp">
 			<Option virtualFolder="Tools/Component/" />
 		</Unit>
 		<Unit filename="JColor.h">
+			<Option virtualFolder="Tools/Component/" />
+		</Unit>
+		<Unit filename="JScene.cpp">
+			<Option virtualFolder="Tools/Area/" />
+		</Unit>
+		<Unit filename="JScene.h">
+			<Option virtualFolder="Tools/Area/" />
+		</Unit>
+		<Unit filename="JTexture.cpp">
+			<Option virtualFolder="Tools/Component/" />
+		</Unit>
+		<Unit filename="JTexture.h">
+			<Option virtualFolder="Tools/Component/" />
+		</Unit>
+		<Unit filename="JTextureButton.cpp">
+			<Option virtualFolder="Tools/Component/" />
+		</Unit>
+		<Unit filename="JTextureButton.h">
 			<Option virtualFolder="Tools/Component/" />
 		</Unit>
 		<Unit filename="JeyGui.cpp">

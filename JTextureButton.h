@@ -1,32 +1,21 @@
 #ifndef JTEXTUREBUTTON_H_INCLUDED
 #define JTEXTUREBUTTON_H_INCLUDED
 
+#include <string>
 #include <SDL.h>
+
+#include "component.h"
 #include "JTexture.h"
+#include "JButtonState.h"
 
-enum JButtonSide
-{
-    TOP_LEFT = 0,
-    TOP = 1,
-    TOP_RIGHT = 2,
-    LEFT = 3,
-    MIDDLE = 4,
-    RIGHT = 5,
-    BOTTOM_LEFT = 6,
-    BOTTOM = 7,
-    BOTTOM_RIGHT = 8,
-    TOTAL_SIDE = 9,
-};
-
-class JTextureButton : public JTexture
+class JTextureButton
 {
     private:
-        SDL_Rect* m_rectArray;
-        uShort m_cell;
+        JTexture **m_txtrArr;
     public:
-        JTextureButton( uShort maxWidth, uShort maxHeight, SDL_Texture *texture, uShort widthTxtr, uShort heightTxtr );
+        JTextureButton( JTexture **txtrArr );
         ~JTextureButton();
-        void render( bool update, SDL_Renderer *renderer );
+        JTexture* getJTexture( JButtonState state );
 };
 
 #endif // JTEXTUREBUTTON_H_INCLUDED

@@ -13,7 +13,8 @@ class JTexture : public Component
         uShort m_widthTxtr;
         uShort m_heightTxtr;
     public:
-        JTexture( uShort maxWidth, uShort maxHeight, SDL_Texture *texture, uShort m_widthTxtr, uShort m_heightTxtr );
+        JTexture();
+        JTexture( uShort maxWidth, uShort maxHeight, SDL_Texture *texture, uShort widthTxtr, uShort heightTxtr );
         ~JTexture();
         virtual void render( bool update, SDL_Renderer *renderer );
 };

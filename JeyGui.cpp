@@ -6,6 +6,7 @@
 #include "JeyGui.h"
 
 JeyGui::JeyGui()
+    : m_mListnr( new MouseListener )
 {
     printf( "JeyGui made with SDL by JeyJer.\n" );
     if( loadSDL() )
@@ -78,10 +79,10 @@ Window* JeyGui::createWindow( std::string title )
     return createWindow( title.data(), m_xRcmd, m_yRcmd ,m_widthRcmd, m_heightRcmd );
 }
 
-Window* JeyGui::createWindow( std::string title, uShort width, uShort height, uShort x, uShort y )
+Window* JeyGui::createWindow( std::string title, uShort x, uShort y, uShort width, uShort height )
 {
     m_sdlWin = SDL_CreateWindow(
-        title.data(), m_xRcmd, m_yRcmd ,m_widthRcmd, m_heightRcmd, SDL_WINDOW_HIDDEN
+        title.data(), x, y ,width, height, SDL_WINDOW_HIDDEN
     );
     if( m_sdlWin == NULL )
     {
@@ -99,7 +100,7 @@ Window* JeyGui::createWindow( std::string title, uShort width, uShort height, uS
 
 ComponentFactory* JeyGui::createComponentFactory()
 {
-    return new ComponentFactory( m_renderer );
+    return new ComponentFactory( m_renderer, m_mListnr, this );
 }
 
 void JeyGui::createRenderer( SDL_Window *win )
@@ -129,6 +130,11 @@ bool JeyGui::loop()
     bool running = true;
     SDL_Event e;
 
+    int mouseX, mouseY;
+    SDL_GetMouseState( &mouseX, &mouseY );
+
+    m_mListnr->setMousePosition( mouseX, mouseY );
+
     while( SDL_PollEvent(&e) )
     {
         if( e.type == SDL_QUIT )
@@ -151,6 +157,11 @@ bool JeyGui::loop()
     }
 
     return running;
+}
+
+void JeyGui::addMouseListener( Tool *tool )
+{
+    tool->setMouseListener( m_mListnr );
 }
 
 void JeyGui::free()
